@@ -8,8 +8,8 @@ public class PlayerConnectionObject : NetworkBehaviour {
     public GameObject playerPrefab;
     public GameObject board;
     public CubeController cubeController;
-    private DiceController diceController;
-    
+    //private DiceController diceController;
+    public Globals global;
 
 
     public struct BoardState
@@ -32,6 +32,11 @@ public class PlayerConnectionObject : NetworkBehaviour {
         boardStates.Callback = OnBoardStateChanged;
     }
 
+    private void Awake()
+    {
+        global = FindObjectOfType<Globals>();
+    }
+
     // Use this for initialization
     void Start () {
         if (!isLocalPlayer)
@@ -39,7 +44,7 @@ public class PlayerConnectionObject : NetworkBehaviour {
             return;
         }
 
-        diceController = GameObject.FindGameObjectWithTag("Dice").GetComponent<DiceController>();
+        //diceController = GameObject.FindGameObjectWithTag("Dice").GetComponent<DiceController>();
 
         CmdSpawnMyPlayer(); 
         
@@ -52,38 +57,38 @@ public class PlayerConnectionObject : NetworkBehaviour {
             return;
         }
 
-        if (!Globals.isPlaying)
+        if (!global.isPlaying)
         {
-            if (Globals.totalPlayer >= 1 && Input.GetKeyDown(KeyCode.S))
+            if (isServer && global.totalPlayer >= 1 && Input.GetKeyDown(KeyCode.S))
             {
                 CmdCreateBoards();
-                
-                Globals.isPlaying = true;
 
-                Globals.playerTurn = 1;
+                global.isPlaying = true;
+
+                global.playerTurn = 1;
 
                 RpcAssignBoard();
             }
         }
+    }
 
-        
+    [ClientRpc]
+    void RpcInitiatePlayerId()
+    {
+        global.totalPlayer += 1;
+        Debug.Log("Total Player : " + global.totalPlayer);
+        playerPrefab.GetComponent<PlayerController>().playerId = global.totalPlayer;
     }
 
     [Command]
     void CmdSpawnMyPlayer()
     {
-        Globals.totalPlayer += 1;
-        playerPrefab.GetComponent<PlayerController>().playerId = Globals.totalPlayer;
+        
+        RpcInitiatePlayerId();
+        
         GameObject go = Instantiate(playerPrefab);
 
         NetworkServer.SpawnWithClientAuthority(go,connectionToClient);
-        
-        if(Globals.totalPlayer >= 1)
-        {
-            Globals.isPlaying = false;
-        }
-
-        GameObject.FindObjectOfType<GameController>().AddPlayer(go);
         
     }
 

@@ -10,6 +10,7 @@ public class PlayerController : NetworkBehaviour {
     public int targetPosition;
 
     public bool myTurn = false;
+    public Globals global;
 
     private DiceController diceController;
     private static GameObject boards;
@@ -41,6 +42,8 @@ public class PlayerController : NetworkBehaviour {
             Debug.Log("DiceController Loaded!!");
         }
 
+        global = FindObjectOfType<Globals>();
+
 
     }
 
@@ -60,12 +63,17 @@ public class PlayerController : NetworkBehaviour {
 
     private void Start()
     {
+        if (isServer)
+        {
+            playerId = 1;
+        }
+
         nextPosition = 0;
         targetPosition = 0;
-        Globals.isMoving = false;
+        global.isMoving = false;
         state = PlayerState.FacingRight;
         Debug.Log("First state : " + state);
-        Globals.isBackward = false;
+        global.isBackward = false;
     }
 
     // Update is called once per frame
@@ -81,20 +89,40 @@ public class PlayerController : NetworkBehaviour {
             this.transform.Translate(0, 1, 0);
         }
 
+        if(global.playerTurn == this.playerId)
+        {
+            myTurn = true;
+            if (!global.isMoving && !global.isBackward && !diceController.isShake)
+            {
+                diceController.TurnOnShakeButton();
+            }
+            else
+            {
+                diceController.TurnOffShakeButton();
+            }
+        }
+        else
+        {
+            myTurn = false;
+            diceController.TurnOffShakeButton();
+        }
+
+        //movePlayer();
+    }
+
+    public void movePlayer()
+    {
         if (myTurn)
         {
-            if (Globals.isPlaying)
+            if (global.isPlaying)
             {
 
-                if (!Globals.isMoving && !Globals.isBackward)
+                if (!global.isMoving && !global.isBackward)
                 {
-                    if (Input.GetKeyDown(KeyCode.R))
-                    {
-                        diceController.shakeDice();
-                        targetPosition += diceController.diceNumber;
-                        Globals.isMoving = true;
-                        StartMove(2.0f);
-                    }
+                    //diceController.ShakeDice();
+                    targetPosition += diceController.diceNumber;
+                    
+                    StartMove(2.0f);
                 }
             }
         }
@@ -102,12 +130,12 @@ public class PlayerController : NetworkBehaviour {
 
     public void StartMove(float seconds = 2.0f)
     {
-        
         StartCoroutine("StartMoveCoroutine", seconds);
     }
 
     private IEnumerator StartMoveCoroutine(float seconds)
     {
+        global.isMoving = true;
         GetComponent<PlayerAnimationController>().Walking();
 
         while (nextPosition != targetPosition)
@@ -123,42 +151,42 @@ public class PlayerController : NetworkBehaviour {
 
             Vector3 nextPos = new Vector3(cube[nextPosition].transform.position.x, this.transform.position.y, cube[nextPosition].transform.position.z);
 
-            if (!Globals.isBackward)
+            if (!global.isBackward)
             {
                 if (this.transform.position.z < nextPos.z && state == PlayerState.FacingRight)
                 {
                     state = PlayerState.FacingUp;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.z + "target : " + targetPos.z);
-                    Debug.Log("After rotate from right state : " + state);
+                    //Debug.Log("After rotate from right state : " + state);
                 }
                 else if (this.transform.position.x > nextPos.x && state == PlayerState.FacingUp)
                 {
                     state = PlayerState.FacingLeft;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, -90.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.x + "target : " + targetPos.x);
-                    Debug.Log("After rotate from Up state : " + state);
+                    //Debug.Log("After rotate from Up state : " + state);
                 }
                 else if (this.transform.position.z < nextPos.z && state == PlayerState.FacingLeft)
                 {
                     state = PlayerState.FacingUp;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 0.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.z + "target : " + targetPos.z);
-                    Debug.Log("After rotate from Left state : " + state);
+                    //Debug.Log("After rotate from Left state : " + state);
                 }
                 else if (this.transform.position.x < nextPos.x && state == PlayerState.FacingUp)
                 {
                     state = PlayerState.FacingRight;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 90.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.x + "target : " + targetPos.x);
-                    Debug.Log("After rotate from Up state : " + state);
+                    //Debug.Log("After rotate from Up state : " + state);
                 }
                 else if (this.transform.position.x < nextPos.x && state == PlayerState.FacingLeft)
                 {
                     state = PlayerState.FacingRight;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 90.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.x + "target : " + targetPos.x);
-                    Debug.Log("After rotate from Left state : " + state);
+                    //Debug.Log("After rotate from Left state : " + state);
                 }
                 else
                 {
@@ -172,28 +200,28 @@ public class PlayerController : NetworkBehaviour {
                     state = PlayerState.FacingBottom;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.z + "target : " + targetPos.z);
-                    Debug.Log("After rotate from left state : " + state);
+                    //Debug.Log("After rotate from left state : " + state);
                 }
                 else if (this.transform.position.x < nextPos.x && state == PlayerState.FacingBottom)
                 {
                     state = PlayerState.FacingRight;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 90.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.x + "target : " + targetPos.x);
-                    Debug.Log("After rotate from bottom state : " + state);
+                    //Debug.Log("After rotate from bottom state : " + state);
                 }
                 else if (this.transform.position.z < nextPos.z && state == PlayerState.FacingRight)
                 {
                     state = PlayerState.FacingBottom;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, 180.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.z + "target : " + targetPos.z);
-                    Debug.Log("After rotate from Right state : " + state);
+                    //Debug.Log("After rotate from Right state : " + state);
                 }
                 else if (this.transform.position.x > nextPos.x && state == PlayerState.FacingBottom)
                 {
                     state = PlayerState.FacingLeft;
                     this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, -90.0f, this.transform.rotation.z);
                     //Debug.Log("Player : " + player.transform.position.x + "target : " + targetPos.x);
-                    Debug.Log("After rotate from Up state : " + state);
+                    //Debug.Log("After rotate from Up state : " + state);
                 }
                 else
                 {
@@ -208,53 +236,70 @@ public class PlayerController : NetworkBehaviour {
                 yield return new WaitForSeconds(warning);
             }
 
-            if(nextPosition == Globals.goals && targetPosition > Globals.goals)
+            if(nextPosition == global.goals && targetPosition > global.goals)
             {
-                Globals.isBackward = true;
-                targetPosition = Globals.goals - (targetPosition - Globals.goals);
+                global.isBackward = true;
+                targetPosition = global.goals - (targetPosition - global.goals);
                 state = PlayerState.FacingLeft;
                 this.transform.rotation = Quaternion.Euler(this.transform.rotation.x, -90.0f, this.transform.rotation.z);
-                Debug.Log("After rotate from Right state : " + state);
-            }else if(nextPosition == targetPosition && Globals.isBackward)
+                //Debug.Log("After rotate from Right state : " + state);
+            }else if(nextPosition == targetPosition && global.isBackward)
             {
-                Globals.isBackward = false;
+                global.isBackward = false;
             }
         }
 
         checkPlayerPosition();
 
-        if (targetPosition == Globals.goals)
+        if (targetPosition == global.goals)
         {
             Debug.Log("Win");
         }
 
         this.GetComponent<PlayerAnimationController>().Idle();
-        Globals.isMoving = false;
-        Globals.playerTurn = 2;
-        myTurn = false;
+        
+        //global.isMoving = false;
     }
 
     public void checkPlayerPosition()
     {
         if (cube[targetPosition].gameObject.GetComponent<CubePhysic>().state == CubePhysic.CubeState.CubeDanger)
         {
-            Globals.isBackward = true;
-            Debug.Log(cube[targetPosition].gameObject.GetComponent<CubePhysic>().state + "Move Backward : ");
+            global.isBackward = true;
+            //Debug.Log(cube[targetPosition].gameObject.GetComponent<CubePhysic>().state + "Move Backward : ");
             targetPosition -= Random.Range(1, 7);
             if (targetPosition < 0)
             {
                 targetPosition = 0;
             }
             StartMove(2.0f);
+            //global.isBackward = false;
         }
         else if (cube[targetPosition].gameObject.GetComponent<CubePhysic>().state == CubePhysic.CubeState.CubeHelp)
         {
-            Globals.isMoving = true;
-            Debug.Log("Move Forward : " + state);
+            global.isBackward = false;
+            //global.isMoving = true;
+            //Debug.Log("Move Forward : " + state);
             targetPosition += Random.Range(1, 7);
             StartMove(2.0f);
         }
+        else
+        {
+            CmdChangeTurn();
+        }
+    }
+
+    [Command]
+    void CmdChangeTurn()
+    {
+        global.playerTurn += 1;
+        global.isMoving = false;
+        myTurn = false;
     }
 
 
+    private void OnDestroy()
+    {
+        diceController.TurnOffAll();
+    }
 }

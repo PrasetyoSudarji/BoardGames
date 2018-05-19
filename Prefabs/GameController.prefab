@@ -53,9 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurn: 0
-  board: {fileID: 1827257617249634, guid: 0f7086cc579605840a5c73ba86fda8b1, type: 2}
-  playerController: {fileID: 114047223200051166, guid: 38b9fa63b53240c4a859bb680deb53e8,
-    type: 2}
+  global: {fileID: 0}
 --- !u!114 &114248241499356592
 MonoBehaviour:
   m_ObjectHideFlags: 1

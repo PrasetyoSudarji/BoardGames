@@ -3,15 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Globals {
-    public static int totalPlayer = 0;
-    public static int maxPlayer = 4;
-    public static bool isPlaying = false;
-    public static int goals = 24;
-    public static int playerTurn = 0;
+public class Globals : NetworkBehaviour{
     [SyncVar]
-    public static bool isMoving = false;
+    public int totalPlayer = 0;
     [SyncVar]
-    public static bool isBackward = false;
+    public int maxPlayer = 4;
+    [SyncVar]
+    public bool isPlaying = false;
+    [SyncVar]
+    public int goals = 24;
+    [SyncVar]
+    public int playerTurn = 0;
+    [SyncVar]
+    public bool isMoving = false;
+    [SyncVar]
+    public bool isBackward = false;
+
+    public override void OnStartServer()
+    {
+        totalPlayer = 0;
+        isPlaying = false;
+        playerTurn = 0;
+        isMoving = false;
+        isBackward = false;
+    }
+
+    void Update()
+    {
+        //Debug.Log("Player turn : "+playerTurn);
+        if (playerTurn > totalPlayer)
+        {
+            playerTurn = 1;
+        }
+
+    }
 
 }
