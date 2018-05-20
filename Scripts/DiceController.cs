@@ -68,11 +68,11 @@ public class DiceController : NetworkBehaviour {
 
         TurnOffShakeButton();
 
-        //TurnOnDiceImg(diceNumber);
+        TurnOnDiceImg(diceNumber);
 
         yield return new WaitForSeconds(seconds);
 
-        //TurnOffDiceImg(diceNumber);
+        TurnOffDiceImg(diceNumber);
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i].GetComponent<PlayerController>().playerId == global.playerTurn)

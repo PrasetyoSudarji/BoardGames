@@ -14,6 +14,8 @@ public class PlayerController : NetworkBehaviour {
 
     private DiceController diceController;
     private static GameObject boards;
+    public GameObject winPanel;
+    public GameObject losePanel;
 
     public int cubeSize;
     public static GameObject[] cube;
@@ -116,10 +118,30 @@ public class PlayerController : NetworkBehaviour {
             if (global.playerTurn == this.playerId)
             {
                 GetComponent<PlayerAnimationController>().Win();
+                if (!global.isFinish)
+                {
+                    //Instantiate(winPanel);
+                    GameObject go = GameObject.FindGameObjectWithTag("WinPanel");
+                    for(int i = 0; i < go.transform.childCount; i++)
+                    {
+                        go.transform.GetChild(i).gameObject.SetActive(true);
+                    }
+                    global.isFinish = true;
+                }
             }
             else
             {
                 GetComponent<PlayerAnimationController>().Lose();
+                if (!global.isFinish)
+                {
+                    //Instantiate(losePanel);
+                    GameObject go = GameObject.FindGameObjectWithTag("LosePanel");
+                    for (int i = 0; i < go.transform.childCount; i++)
+                    {
+                        go.transform.GetChild(i).gameObject.SetActive(true);
+                    }
+                    global.isFinish = true;
+                }
             }
 
             TurnOff();
@@ -311,6 +333,7 @@ public class PlayerController : NetworkBehaviour {
             Debug.Log("Win");
             global.isMoving = false;
             myTurn = false;
+            
         }
         else
         {

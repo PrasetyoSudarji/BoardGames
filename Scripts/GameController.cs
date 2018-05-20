@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameController : NetworkBehaviour {
 
     public Globals global;
-
+    
     private void Awake()
     {
         global = FindObjectOfType<Globals>();
@@ -21,6 +22,9 @@ public class GameController : NetworkBehaviour {
 
     }
 
-  
+    public void CloseGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 }

@@ -2072,6 +2072,8 @@ MonoBehaviour:
   targetPosition: 0
   myTurn: 0
   global: {fileID: 0}
+  winPanel: {fileID: 1057645781794368, guid: af1aa32bc7f12ef45983e66be42c2e7f, type: 2}
+  losePanel: {fileID: 1478105136963540, guid: f4aa47fd5aded89479862d77c015f47c, type: 2}
   cubeSize: 0
   cam: {fileID: 0}
   state: 0

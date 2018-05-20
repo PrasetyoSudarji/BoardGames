@@ -8,6 +8,9 @@ public class CubePhysic : MonoBehaviour {
     public int cubeNumber;
     private CubeController cubeController;
     private Renderer rend;
+    public GameObject rocketShoe;
+    public GameObject house;
+    public GameObject rod;
 
     public enum CubeState
     {
@@ -34,6 +37,11 @@ public class CubePhysic : MonoBehaviour {
         {
             state = CubeState.CubeNormal;
             rend.material.color = Color.black;
+            if(cubeNumber == 25)
+            {
+                Vector3 newPos = new Vector3(this.transform.position.x+0.6f, this.transform.position.y + 0.5f, this.transform.position.z-0.4f);
+                Instantiate(house, newPos, Quaternion.Euler(new Vector3(0.0f,90.0f,0.0f)));
+            }
         }
         else if (state == CubeState.CubeNormal)
         {
@@ -42,11 +50,14 @@ public class CubePhysic : MonoBehaviour {
         else if (state == CubeState.CubeHelp)
         {
             rend.material.color = Color.white;
-
+            Vector3 newPos = new Vector3(this.transform.position.x, this.transform.position.y+0.5f,this.transform.position.z);
+            Instantiate(rocketShoe,newPos,Quaternion.identity);
         }
         else if (state == CubeState.CubeDanger)
         {
             rend.material.color = Color.red;
+            Vector3 newPos = new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z);
+            Instantiate(rod, newPos, Quaternion.identity);
         }
     }
 	

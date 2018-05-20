@@ -20,7 +20,9 @@ public class Globals : NetworkBehaviour{
     public bool isBackward = false;
     [SyncVar]
     public bool isWin = false;
-    
+
+    public bool isFinish = false;
+
     public override void OnStartServer()
     {
         totalPlayer = 0;

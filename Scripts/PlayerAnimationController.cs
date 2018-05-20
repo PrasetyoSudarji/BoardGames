@@ -63,4 +63,5 @@ public class PlayerAnimationController : MonoBehaviour {
     {
         animator.SetTrigger("lose");
     }
+
 }

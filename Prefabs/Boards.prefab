@@ -2204,6 +2204,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 17
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114049033916917720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2217,6 +2220,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 23
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114080244814507444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2230,6 +2236,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 4
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114127760511151518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2243,6 +2252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 22
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114148294639577020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2256,6 +2268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 16
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114198066401454760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2269,6 +2284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 5
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114206556077759922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2282,6 +2300,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 24
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114381546790750348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2308,6 +2329,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 20
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114388263628324440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2321,6 +2345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 9
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114398924482342726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2334,6 +2361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 13
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114401134597402040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2347,6 +2377,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 2
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114429209780389210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2392,6 +2425,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 3
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114472365788022562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2405,6 +2441,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 10
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114474909434837940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2418,6 +2457,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 6
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114500536884524592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2431,6 +2473,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 12
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114544781495166574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2444,6 +2489,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 21
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114628561598456134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2457,6 +2505,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 14
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114637232025073764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2470,6 +2521,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 15
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114681098582561660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2483,6 +2537,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 25
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114717985403346720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2496,6 +2553,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 8
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114744600985191086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2509,6 +2569,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 1
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114747873918789820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2522,6 +2585,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 19
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114766162306121046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2535,6 +2601,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 7
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114949079706029872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2548,6 +2617,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 18
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
 --- !u!114 &114968293812805650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2561,3 +2633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   cubeNumber: 11
+  rocketShoe: {fileID: 1645633597978310, guid: 02e132c7180936543b16ceca32c1d78f, type: 2}
+  house: {fileID: 1672770996761864, guid: 0c4fc00374df3c240b67d054a02307ea, type: 2}
+  rod: {fileID: 1476725837691074, guid: f3ca890a8dd9ed04e987bfc7fca7b31f, type: 2}
