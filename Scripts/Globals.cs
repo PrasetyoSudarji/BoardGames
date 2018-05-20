@@ -18,7 +18,9 @@ public class Globals : NetworkBehaviour{
     public bool isMoving = false;
     [SyncVar]
     public bool isBackward = false;
-
+    [SyncVar]
+    public bool isWin = false;
+    
     public override void OnStartServer()
     {
         totalPlayer = 0;
@@ -26,6 +28,7 @@ public class Globals : NetworkBehaviour{
         playerTurn = 0;
         isMoving = false;
         isBackward = false;
+        isWin = false;
     }
 
     void Update()

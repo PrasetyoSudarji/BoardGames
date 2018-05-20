@@ -274,8 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab52ae62924ea644581842b55a3d7730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
   smoothSpeed: 0.75
-  offset: {x: 0, y: 1.76, z: -5.89}
+  offset: {x: 0, y: 1.76, z: -4.4}
+  global: {fileID: 0}
 --- !u!45 &99960874
 Skybox:
   m_ObjectHideFlags: 0
@@ -774,6 +776,7 @@ MonoBehaviour:
   playerTurn: 0
   isMoving: 0
   isBackward: 0
+  isWin: 0
 --- !u!4 &783336524
 Transform:
   m_ObjectHideFlags: 0

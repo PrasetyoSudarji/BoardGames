@@ -31,7 +31,7 @@ public class DiceController : NetworkBehaviour {
 
     public void ShakeDice()
     {
-        diceNumber = Random.Range(1, 7);
+        diceNumber = Random.Range(1,7);
         Debug.Log("The dice is shaken");
         StartShake();
     }
@@ -68,11 +68,11 @@ public class DiceController : NetworkBehaviour {
 
         TurnOffShakeButton();
 
-        TurnOnDiceImg(diceNumber);
+        //TurnOnDiceImg(diceNumber);
 
         yield return new WaitForSeconds(seconds);
 
-        TurnOffDiceImg(diceNumber);
+        //TurnOffDiceImg(diceNumber);
         for (int i = 0; i < players.Length; i++)
         {
             if (players[i].GetComponent<PlayerController>().playerId == global.playerTurn)
@@ -85,6 +85,7 @@ public class DiceController : NetworkBehaviour {
     }
     
     public void TurnOffAll() {
+        
         for(int i = 0; i < diceImg.Length; i++)
         {
             TurnOffDiceImg(i+1);

@@ -11,7 +11,6 @@ public class PlayerConnectionObject : NetworkBehaviour {
     //private DiceController diceController;
     public Globals global;
 
-
     public struct BoardState
     {
         public int cubeNumber;
@@ -35,6 +34,7 @@ public class PlayerConnectionObject : NetworkBehaviour {
     private void Awake()
     {
         global = FindObjectOfType<Globals>();
+
     }
 
     // Use this for initialization

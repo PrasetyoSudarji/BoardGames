@@ -2066,14 +2066,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f2e77ef6ce7e4c8b89409aebd80a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerId: 1
   speed: 5
   nextPosition: 0
   targetPosition: 0
-  isMoving: 0
-  isBackward: 0
-  boards: {fileID: 0}
+  myTurn: 0
+  global: {fileID: 0}
   cubeSize: 0
-  cube: []
+  cam: {fileID: 0}
   state: 0
 --- !u!114 &114218335770991944
 MonoBehaviour:

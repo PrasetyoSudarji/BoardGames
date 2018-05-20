@@ -17,7 +17,7 @@ public class PlayerController : NetworkBehaviour {
 
     public int cubeSize;
     public static GameObject[] cube;
-
+    public CameraFollowPlayer cam;
 
     public enum PlayerState
     {
@@ -74,6 +74,7 @@ public class PlayerController : NetworkBehaviour {
         state = PlayerState.FacingRight;
         Debug.Log("First state : " + state);
         global.isBackward = false;
+
     }
 
     // Update is called once per frame
@@ -83,12 +84,14 @@ public class PlayerController : NetworkBehaviour {
         {
             return; 
         }
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            this.transform.Translate(0, 1, 0);
-        }
 
+        if(cam == null)
+        {
+            cam = FindObjectOfType<CameraFollowPlayer>();
+            cam.playerTransform = this.gameObject.transform;
+            cam.global = global;
+        }
+        
         if(global.playerTurn == this.playerId)
         {
             myTurn = true;
@@ -105,6 +108,21 @@ public class PlayerController : NetworkBehaviour {
         {
             myTurn = false;
             diceController.TurnOffShakeButton();
+        }
+
+        if (global.isWin)
+        {
+            Debug.Log("Player turn : "+global.playerTurn+",Player ID : " +this.playerId);
+            if (global.playerTurn == this.playerId)
+            {
+                GetComponent<PlayerAnimationController>().Win();
+            }
+            else
+            {
+                GetComponent<PlayerAnimationController>().Lose();
+            }
+
+            TurnOff();
         }
 
         //movePlayer();
@@ -251,11 +269,6 @@ public class PlayerController : NetworkBehaviour {
 
         checkPlayerPosition();
 
-        if (targetPosition == global.goals)
-        {
-            Debug.Log("Win");
-        }
-
         this.GetComponent<PlayerAnimationController>().Idle();
         
         //global.isMoving = false;
@@ -292,14 +305,40 @@ public class PlayerController : NetworkBehaviour {
     [Command]
     void CmdChangeTurn()
     {
-        global.playerTurn += 1;
-        global.isMoving = false;
-        myTurn = false;
+        if (targetPosition == global.goals)
+        {
+            RpcWin();
+            Debug.Log("Win");
+            global.isMoving = false;
+            myTurn = false;
+        }
+        else
+        {
+            global.playerTurn += 1;
+            global.isMoving = false;
+            myTurn = false;
+        }
+        
+    }
+
+    [ClientRpc]
+    void RpcWin()
+    {
+        global.isWin = true;
+        global.isPlaying = false;
     }
 
 
     private void OnDestroy()
     {
-        diceController.TurnOffAll();
+        TurnOff();
+    }
+
+    void TurnOff()
+    {
+        if (diceController != null)
+        {
+            diceController.TurnOffAll();
+        }
     }
 }

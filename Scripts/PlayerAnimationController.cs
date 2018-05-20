@@ -53,4 +53,14 @@ public class PlayerAnimationController : MonoBehaviour {
     {
        animator.SetBool("walk", false);
     }
+
+    public void Win()
+    {
+        animator.SetTrigger("win");
+    }
+
+    public void Lose()
+    {
+        animator.SetTrigger("lose");
+    }
 }
